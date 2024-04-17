@@ -14,10 +14,11 @@ export class ListaLivrosComponent {
   constructor(private service: LivroService) { }
 
   buscarLivros() {
-    this.service.buscar(this.campoBusca).subscribe((retornoAPI) => console.log(retornoAPI))
-      // .subscribe(retornoAPI => {
-      //   // this.listaLivros = retornoAPI
-      // })
+    this.service.buscar(this.campoBusca)
+      .subscribe(retornoAPI => {
+        this.listaLivros = retornoAPI
+        console.log(this.listaLivros)
+      });
     }
 
 }
